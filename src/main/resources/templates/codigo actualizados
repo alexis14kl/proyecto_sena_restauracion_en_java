@@ -1,0 +1,71 @@
+	//codigo para registrar usuarios remplazdo por js
+	@PostMapping("/registerData")
+	public <S> String registerData(@Validated String name, @Validated String email, @Validated String clave1,
+			@Validated String clave2, @Validated String perfil, RedirectAttributes redirect) {
+		if (name.isEmpty()) {
+			int n = 0;
+			redirect.addFlashAttribute("data", n);
+		} else {
+			if (email.isEmpty()) {
+				int correo = 0;
+				redirect.addFlashAttribute("c", correo);
+			} else {
+				if (clave1.isEmpty()) {
+					int c1 = 0;
+					redirect.addFlashAttribute("c1", c1);
+				} else {
+					if (!clave1.equals(clave2)) {
+						// message the password are corrects
+						int v = 0;
+						redirect.addFlashAttribute("validar", v);
+					} else {
+						// validated profile user
+						if (perfil.isEmpty()) {
+							System.out.println("el perfil esta vacio" + perfil.toString());
+							int p = 0;
+							redirect.addFlashAttribute("profile", p);
+						} else {
+							if (clave1.equals(clave2)) {
+								List<String> result = ImplementsIServiceUser.buscarCorreo(email);
+								if (result.isEmpty()) {
+									// fragments by save user new
+									User datosusuario = new User();
+									datosusuario.setNombre_completo(name);
+									datosusuario.setUsername(email);
+									datosusuario.setPassword("{noop}" + clave1);
+									datosusuario.setEstatus(1);
+									datosusuario.setConect(0);
+									ImplementsIServiceUser.guardarUser(datosusuario);
+									//save two table profile
+									User consultaUser = ImplementsIServiceUser.buscarUserporCorreo(email);
+									if(consultaUser != null) {
+										int idUser = consultaUser.getId();
+										UserProfile datosup = new UserProfile();
+										datosup.setIdusuario(idUser);
+										datosup.setIdperfil(perfil);
+										implementsServiceUp.guardarUp(datosup);
+									}
+									// and register
+									int rsave = 0;
+									redirect.addFlashAttribute("resultadosave", rsave);
+								} else {
+									if (!result.isEmpty()) {
+										int r = 0;
+										redirect.addFlashAttribute("resultadoquery", r);
+										// the end result email existing
+									}
+								}
+							}
+							// end if password
+						}
+					}
+				}
+			}
+		}
+		redirect.addFlashAttribute("nombre", name);
+		redirect.addFlashAttribute("correo", email);
+		redirect.addFlashAttribute("clave1", clave1);
+		redirect.addFlashAttribute("clave2", clave2);
+		System.out.println("perfil = >" + perfil);
+		return "redirect:/register";
+	}

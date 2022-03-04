@@ -1,0 +1,36 @@
+<div class="sidebar" th:fragment="menu">
+            <!-- Sidebar  -->
+    <nav id="sidebar">
+      <p sec:authorize="isAuthenticated()" style="color:red;top: 9%;position: absolute;"><i style="color:black;" class="fa fa-address-card"></i> [[${rol}]]</p>
+        <div id="dismiss">
+           <i class="fa fa-arrow-left"></i>
+        </div>
+        <!-- list no login -->
+        <ul sec:authorize="isAnonymous()" class="list-unstyled components">
+            <li>
+                <a th:href="@{/}">Home</a>
+            </li>
+            <li >
+                <a th:href="@{/gallery}">Galeria</a>
+            </li>
+             <li >
+                <a th:href="@{/hola}">prueba</a>
+            </li>
+        </ul>
+        <!-- end no login -->
+        <!-- list login products-->
+        <ul sec:authorize="isAuthenticated()" class="list-unstyled components">
+        <li>
+                <a th:href="@{/Bienvenido}">Home</a>
+            </li>
+            <li>
+                <a th:href="@{/registrar_productos}">Registrar Producto</a>
+            </li>
+               <li>
+                <a  th:if="${conect} != 'connect' " th:href="@{/conectados}">Conectados</a>
+            </li>
+        </ul>
+        <!-- end list login -->
+    
+    </nav>
+</div>
