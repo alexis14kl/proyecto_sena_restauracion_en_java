@@ -5,6 +5,9 @@ import java.util.List;
 import net.mycrud.model.User;
 
 public interface IServiceUser {
+	
+	int generatedValue();
+
 	public List<String>buscarCorreo(String email);
 	
 	public int guardarUser(User datosusuario);

@@ -10,8 +10,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import net.mycrud.implementaciones.ImplementsIServiceUser;
+import net.mycrud.implementaciones.ImplementsServiceDataGeneral;
 import net.mycrud.implementaciones.ImplementsServiceProfile;
 import net.mycrud.implementaciones.ImplementsServiceUp;
+import net.mycrud.model.DataGeneral;
 import net.mycrud.model.ProfileUser;
 import net.mycrud.model.User;
 import net.mycrud.model.UserProfile;
@@ -29,6 +31,10 @@ public class ControllerRegisterNewUser {
 	
 	@Autowired
 	private ImplementsServiceProfile implementsServiceProfile;
+	
+	@Autowired
+	private ImplementsServiceDataGeneral implementsServiceDataGeneral;
+
 
 	@GetMapping("/register")
 	public String RegisterUser(Model theModel) {
@@ -76,6 +82,19 @@ public class ControllerRegisterNewUser {
 				up.setIdusuario(consultarUserRegistering.getId());
 				implementsServiceUp.guardarUp(up);
 				//continuacion si hay que continuar con angunos arreglos
+				//guardar registro de la tabla datos generales
+				//saved id auto regeratedValue by system
+				int cod = implementsIServiceUser.generatedValue();
+				System.out.println("este es el id generad por el sistema " + cod);
+				DataGeneral dataG = new DataGeneral();
+				dataG.setIdusuario(consultarUserRegistering.getId());
+				dataG.setCod_cliente(cod);
+				dataG.setNumero_cc("no ");
+				dataG.setTipo_documento("no");
+				dataG.setDireccion("no");
+				dataG.setTelefono("no");
+				//hay que actualizar poner campus del asessor pendiente
+				implementsServiceDataGeneral.guardardataG(dataG);
 			}
 			
 		}

@@ -14,6 +14,7 @@ public class ImplementsIServiceUser implements IServiceUser {
 	
 	@Autowired
 	private RepoUser repoUser;
+	
 
 	@Override
 	public List<String> buscarCorreo(String email) {
@@ -59,6 +60,14 @@ public class ImplementsIServiceUser implements IServiceUser {
 		// TODO Auto-generated method stub
 		return repoUser.buscarCorreoxcorreo(nombre, pass);
 	}
+
+	@Override
+	public int generatedValue() {
+		// TODO Auto-generated method stub
+		return repoUser.generatedValue();
+	}
+
+	
 
 	
 

@@ -138,6 +138,9 @@ function validarData() {
 													allowEscapeKey: false,
 													allowEnterKey: false
 												})
+												setTimeout(function() {
+													window.location = '/login';
+												}, 2000);
 											}
 										}
 

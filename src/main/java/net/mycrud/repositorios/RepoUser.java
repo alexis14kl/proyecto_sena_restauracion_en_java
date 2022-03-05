@@ -10,6 +10,10 @@ import org.springframework.transaction.annotation.Transactional;
 import net.mycrud.model.User;
 
 public interface RepoUser extends CrudRepository<User, Integer> {
+	
+	//auto generatedValue id
+			@Query(value = "select round( rand()*1000000)", nativeQuery = true)
+			int generatedValue();
 
 	// search email
 	@Query(value = " select * from usuarios where username =:email", nativeQuery = true)
