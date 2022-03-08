@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.transaction.annotation.Transactional;
 
+import net.mycrud.dtos.UserDTO;
 import net.mycrud.model.User;
 
 public interface RepoUser extends CrudRepository<User, Integer> {
@@ -45,5 +46,15 @@ public interface RepoUser extends CrudRepository<User, Integer> {
 	
 	@Query(value = "select * from usuarios where username =:nombre and password =:pass", nativeQuery = true)
 	public List<User> buscarCorreoxcorreo(String nombre, String pass);
+	
+	//session by check
+	@Query(value = "SELECT u.id,  u.Nombre_completo, u.username, dg.direccion, dg.Telefono, dg.cod_cliente, dg.Numero_cc, dg.tipo_documento FROM usuarios u "
+			+ "INNER JOIN datosgenerales dg on u.id = dg.idusuario where username =:correo", nativeQuery = true)
+	public List<UserDTO>datosGenerales(String correo);
+	
+	@Query(value = "select * from usuarios where id =:id", nativeQuery = true)
+	public List<User> buscarPorid(int id);
+	
+
 
 }

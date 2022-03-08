@@ -11,13 +11,13 @@ public class Home_Controller {
 	// this controller is the index
 	@GetMapping("/")
 	public String show_Index() {
-		return "index";
+		return "index.html";
 	}
 
 	// this controller is the gallery
 	@GetMapping("/gallery")
 	public String showGallery() {
-		return "gallery";
+		return "gallery.html";
 	}
 
 

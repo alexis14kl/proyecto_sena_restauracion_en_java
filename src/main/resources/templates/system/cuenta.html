@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<!-- basic -->
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<!-- mobile metas -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+<!-- site metas -->
+<title>Información General</title>
+<meta name="keywords" content="MY WEB">
+<meta name="description" content="">
+<meta name="author" content="YILSON ALEXIS MALAMBO MADRIGAL">
+<meta http-equiv='cache-control' content='no-cache'>
+<meta http-equiv='expires' content='0'>
+<meta http-equiv='pragma' content='no-cache'>
+<!-- bootstrap css -->
+<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+<!-- owl css -->
+<link rel="stylesheet" th:href="@{/css/owl.carousel.min.css}">
+<!-- style css -->
+<link rel="stylesheet" th:href="@{/css/style.css}">
+<!-- responsive-->
+<link rel="stylesheet" th:href="@{/css/responsive.css}">
+<!-- awesome fontfamily -->
+<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="font-awesome/css/font-awesome.css">
+<!-- alertas personalizadas js -->
+<link rel="stylesheet" href="css/dark.css">
+<!-- bootraps actualizado version 5 -->
+<!-- CSS only -->
+<link href="bootstraps5/bootstrap.min.css" rel="stylesheet"
+	crossorigin="anonymous">
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+</head>
+<!-- body -->
+
+<body class="main-layout">
+	<!-- loader  -->
+	<div class="loader_bg">
+		<div class="loader">
+			<img th:src="@{/images/loading.gif}" alt="" />
+		</div>
+	</div>
+
+	<div class="wrapper">
+		<!-- end loader -->
+
+		<!-- menu -->
+		<div th:insert="/menu-header/menu :: menu"></div>
+		<!-- end menu -->
+
+		<div id="content">
+			<!-- header -->
+			<div th:insert="menu-header/header :: header"></div>
+			<!-- end header -->
+			<!-- start slider section -->
+			<div class="slider_section"></div>
+			<!-- end slider section -->
+			<!-- section slider -->
+			<section class="resip_section">
+				<div class="container">
+					<div class="row">
+						<div class="container">
+							<div class="row">
+								<div class="col-md-12">
+									<div style="background: #d8b00f; width: 100%;">
+										<!--// form -->
+										<div class="row">
+											<div class=" col-md-12">
+												<div class="full">
+													<h1 style="text-align: center; margin-top: 2%;"
+														class="logo_index">Datos Generales</h1>
+												</div>
+											</div>
+											<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+
+												<!-- form -->
+												<div id="f" style="margin-left: 50%; width: 100%;">
+													<hr>
+													<div id="div1">
+														<table border class="table-striped table-hover">
+															<tr align=center>
+																<th><p class="infoG">#Cuenta</p></th>
+																<td>[[${cod}]]</td>
+															</tr>
+
+															<tr align=center>
+																<th><p class="infoG">Mi asesor</p></th>
+																<td>[[${asesor}]]</td>
+															</tr>
+
+															<tr align=center>
+																<th><p class="infoG">Dirección de envío</p></th>
+																<td>[[${address}]]</td>
+															</tr>
+
+															<tr align=center>
+																<th><p class="infoG">Nombre</p></th>
+																<td>[[${name}]]</td>
+															</tr>
+
+															<tr align=center>
+																<th><p class="infoG">Número de Identificación</p></th>
+																<td>[[${cc}]]</td>
+															</tr>
+
+															<tr align=center>
+																<th><p class="infoG">Tipo de Identificación</p></th>
+																<td>[[${TD}]]</td>
+															</tr>
+
+															<tr align=center>
+																<th><p class="infoG">Email</p></th>
+																<td>[[${email}]]</td>
+															</tr>
+
+															<tr align=center>
+																<th><p class="infoG">Teléfono celular</p></th>
+																<td>[[${phone}]]</td>
+															</tr>
+
+															<tr align=center>
+																<th><p class="infoG">Actualizar Información</p></th>
+																<td><i onclick="updated();"
+																	style="color: white; cursor: pointer;"
+																	class="fa fa-pencil-square-o btn btn-primary"
+																	aria-hidden="true"></i></td>
+															</tr>
+
+															<tr align=center>
+																<th><p class="infoG">Eliminar Cuenta</p></th>
+																<td><i th:onclick="deleted('[[${iduser}]]');"
+																	style="color: white; cursor: pointer;"
+																	class="fa fa-trash btn btn-danger" aria-hidden="true"></i>
+																</td>
+															</tr>
+														</table>
+													</div>
+													<hr>
+												</div>
+												<!-- end the form -->
+											</div>
+										</div>
+										<!-- the end form -->
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- end slider -->
+
+			<!-- footer -->
+			<div th:insert="/menu-header/footer :: footer"></div>
+			<!-- end footer -->
+		</div>
+	</div>
+	<div class="overlay"></div>
+	<!-- Javascript files-->
+	<script th:src="@{/js/jquery.min.js}"></script>
+	<script th:src="@{/js/popper.min.js}"></script>
+	<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+	<script th:src="@{/js/owl.carousel.min.js}"></script>
+	<script th:src="@{/js/custom.js}"></script>
+	<script th:src="@{/js/jquery.mCustomScrollbar.concat.min.js}"></script>
+	<script th:src="@{/js/jquery-3.0.0.min.js}"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#infogeneral').html('');
+			$("#sidebar").mCustomScrollbar({
+				theme : "minimal"
+			});
+
+			$('#dismiss, .overlay').on('click', function() {
+				$('#sidebar').removeClass('active');
+				$('.overlay').removeClass('active');
+			});
+
+			$('#sidebarCollapse').on('click', function() {
+				$('#sidebar').addClass('active');
+				$('.overlay').addClass('active');
+				$('.collapse.in').toggleClass('in');
+				$('a[aria-expanded=true]').attr('aria-expanded', 'false');
+			});
+		});
+	</script>
+
+	<style>
+#owl-demo .item {
+	margin: 3px;
+}
+
+#owl-demo .item img {
+	display: block;
+	width: 100%;
+	height: auto;
+}
+
+#div1 {
+	overflow: scroll;
+	height: auto;
+	margin-bottom: 5%;
+}
+
+#div1 table {
+	width: 500px;
+	background-color: transparent;
+}
+
+.infoG {
+	color: white;
+}
+
+.main-layout swal2-toast-shown swal2-shown {
+	justify-content: center;
+}
+</style>
+
+
+	<script>
+		$(document).ready(function() {
+			var owl = $('.owl-carousel');
+			owl.owlCarousel({
+				margin : 10,
+				nav : true,
+				loop : true,
+				responsive : {
+					0 : {
+						items : 1
+					},
+					600 : {
+						items : 2
+					},
+					1000 : {
+						items : 5
+					}
+				}
+			})
+		})
+	</script>
+	<script src="js/CuentaDelete/Delete.js" type="text/javascript"></script>
+	<!-- the and modal -->
+	<script th:src="@{/js/logout.js}" type="text/javascript"></script>
+	<!-- alert personalizadas libreria  abrir     <script src="sweetalert2.all.min.js"></script>  -->
+	<script src="js/sweetalert2@11.js"></script>
+	<!-- bootstrap5 -->
+	<!-- JavaScript Bundle with Popper -->
+	<script src="bootstraps5/js/bootstrap.bundle.min.js"
+		crossorigin="anonymous"></script>
+	<!-- modal actualizar informacion -->
+	<div class="modal fade" id="exampleModal" tabindex="-1"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">New message</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal"
+						aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<!-- form -->
+					<div>
+						<div class="mb-3">
+							<label for="recipient-name" class="col-form-label">Número
+								de Identificación:</label> <input type="text" class="form-control"
+								id="recipient-name">
+						</div>
+
+						<div class="mb-3">
+							<label for="recipient-name" class="col-form-label">Tipo
+								de Identificación:</label>
+								 <select styleid="typeDocument" name="typeDocument" class="form-control">
+									<option value="CC">Cédula de Ciudadanía</option>
+									<option value="CE">Cédula de Extranjería</option>
+									<option value="PS">Pasaporte</option>
+							</select>
+						</div>
+					</div>
+
+					<div class="mb-3">
+						<label for="recipient-name" class="col-form-label">Teléfono
+							celular:</label> <input type="text" class="form-control"
+							id="recipient-name">
+					</div>
+					<!-- end from -->
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary"
+						data-bs-dismiss="modal">Salir</button>
+					<button type="button" class="btn btn-primary">Update</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<style>
+.modal-body {
+	height: 250px;
+	width: 100%;
+	overflow-y: auto;
+}
+</style>
+</body>
+
+</html>

@@ -18,7 +18,7 @@
                                 <!-- options login -->
                                 <li sec:authorize="isAuthenticated()"  class="button_user">
                                 <a th:if="${session.datosUser != null}" style="background:transparent;border:none;"><i style="color:#d8b00f;" class="fa fa-user"></i>&nbsp;[[${session.datosUser.Nombre_completo}]]</a>
-                                <a th:onclick="logout('[[${session.datosUser.username}]]')" class="button active btn btn-danger"  >Salir</a></li>                          
+                                <a th:onclick="logout('[[${session.datosUser.username}]]')" class="button active btn btn-danger"  ><i class="fa fa-power-off" aria-hidden="true"></i></a></li>                          
                                 <li>
                                     <button type="button" id="sidebarCollapse">
                                         <img src="images/menu_icon.png" alt="#">

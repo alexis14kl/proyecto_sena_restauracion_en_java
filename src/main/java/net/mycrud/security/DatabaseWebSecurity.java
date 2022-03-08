@@ -29,7 +29,7 @@ public class DatabaseWebSecurity extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
 				// Los recursos estáticos no requieren autenticación
-				.antMatchers("/bootstrap/**", "/images/**", "/css/**", "/js/**", "/gallery/**").permitAll()
+				.antMatchers("/static/**","/bootstraps5/**","/bootstrap/**","/font-awesome/**", "/images/**", "/css/**", "/js/**", "/gallery/**").permitAll()
 				// Las vistas públicas no requieren autenticación
 				.antMatchers("/datos","/logout","/devolverEmail","/validarEmailNewUser","/datosJs","/hola","/user","/", "/register", "/registerData", "/gallery", "/user**").permitAll()
 				// Asignar permisos a URLs por ROLES

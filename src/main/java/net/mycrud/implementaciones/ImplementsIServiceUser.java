@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import net.mycrud.dtos.UserDTO;
 import net.mycrud.model.User;
 import net.mycrud.repositorios.RepoUser;
 import net.mycrud.services.IServiceUser;
@@ -65,6 +66,24 @@ public class ImplementsIServiceUser implements IServiceUser {
 	public int generatedValue() {
 		// TODO Auto-generated method stub
 		return repoUser.generatedValue();
+	}
+
+	@Override
+	public List<UserDTO> datosGenerales(String correo) {
+		// TODO Auto-generated method stub
+		return repoUser.datosGenerales(correo);
+	}
+
+	@Override
+	public void delete(int id) {
+		// TODO Auto-generated method stub
+		repoUser.deleteById(id);
+		
+	}
+
+	@Override
+	public List<User> buscarPorid(int id) {
+		return  repoUser.buscarPorid(id);
 	}
 
 	

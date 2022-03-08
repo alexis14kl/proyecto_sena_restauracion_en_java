@@ -62,41 +62,7 @@ public class ControllerSystemIndex {
 		return"redirect:/registrar_productos";
 	}
 	
-	@GetMapping("/conectados")
-	@ResponseStatus(HttpStatus.OK)
-	public String shoeConnect(Model model, Authentication auth, HttpSession theSession) {
-		
-		String correo = auth.getName();
-		for(GrantedAuthority rol: auth.getAuthorities()) {
-			model.addAttribute("rol", rol.getAuthority());
-			//System.out.println("este es el rol " + rol.getAuthority());
-		}
-		if(theSession.getAttribute("usuario") == null) {
-			User usuario = ImplementsIServiceUser.buscarUserporCorreo(correo);
-			usuario.setPassword(null);
-			theSession.setAttribute("datosUser", usuario);
-		}
-		
-		try {
-			 List<User> lista = ImplementsIServiceUser.searchusers();
-			 model.addAttribute("lista", lista);
-			 if(lista.isEmpty()) {
-				 model.addAttribute("error1", lista);
-			 }
-			 List<User>listainactiva = ImplementsIServiceUser.searchusersinaactivos();
-			 model.addAttribute("listai", listainactiva);
-			 if(listainactiva.isEmpty()) {
-				 model.addAttribute("error2", "No hay usuarios Desconectados");
-			 }
-			return"system/connect";
-			
-		} catch (Exception e) {
-			System.out.println("error " + e.getLocalizedMessage());
-		}
-		return"system/connect";
-
-		
-	}
+	
 	
 
 	//modal messAGE uardar
