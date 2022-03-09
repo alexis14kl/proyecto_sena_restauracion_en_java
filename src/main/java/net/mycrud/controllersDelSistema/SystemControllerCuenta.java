@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
 import net.mycrud.dtos.UserDTO;
 import net.mycrud.implementaciones.ImplementsIServiceUser;
+import net.mycrud.model.DataGeneral;
 import net.mycrud.model.User;
 
 @Controller
@@ -42,26 +43,31 @@ public class SystemControllerCuenta {
 			theSession.setAttribute("datosUser", usuario);
 		}//end the session
 		List<UserDTO> user = ImplementsIServiceUser.datosGenerales(correo);
-		//cod cliente
-		model.addAttribute("cod", user.get(0).getcod_cliente());
-		//mi asesor
-		model.addAttribute("asesor", "no definido");
-		//address
-		model.addAttribute("address", user.get(0).getdireccion());
-		//name
-		model.addAttribute("name", user.get(0).getNombre_completo());
-		//email
-		model.addAttribute("email", user.get(0).getusername());
-		//number phone
-		model.addAttribute("phone", user.get(0).getTelefono());
-		//id
-		model.addAttribute("iduser", user.get(0).getid());
-		//id number
-		model.addAttribute("cc", user.get(0).getNumero_cc());
-		//type document
-		model.addAttribute("TD", user.get(0).gettipo_documento());
+		model.addAttribute("data", user);
 		return"system/cuenta";
 	}
+	
+	
+@GetMapping("/saveDataGeneral")
+@ResponseBody
+
+public String saveDataGeneral(@RequestParam("id_number") String id_number,
+		                      @RequestParam("data_type") String data_type,
+		                      @RequestParam("data_phone") String data_phone, 
+		                      @RequestParam("data_address") String data_address,
+		                      @RequestParam("iduser") String iduser) throws Exception {
+	try {
+		ImplementsIServiceUser.updateDataUserGeneral(id_number, data_type, data_phone, data_address, iduser);
+		System.out.println("datos son estos " + id_number + data_type + data_phone + data_address);
+	}catch(Exception e) {
+		System.out.println("error " + e.getLocalizedMessage().toString());
+		return e.getLocalizedMessage().toString();
+	}
+	return null;
+}
+	
+	
+	
 	
 	//eliminar cuenta
 	@GetMapping("/deleted")

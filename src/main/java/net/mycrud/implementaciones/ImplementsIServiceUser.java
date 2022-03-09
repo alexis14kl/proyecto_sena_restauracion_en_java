@@ -4,8 +4,10 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.thymeleaf.model.IModel;
 
 import net.mycrud.dtos.UserDTO;
+import net.mycrud.model.DataGeneral;
 import net.mycrud.model.User;
 import net.mycrud.repositorios.RepoUser;
 import net.mycrud.services.IServiceUser;
@@ -70,8 +72,20 @@ public class ImplementsIServiceUser implements IServiceUser {
 
 	@Override
 	public List<UserDTO> datosGenerales(String correo) {
+		List<UserDTO> user = repoUser.datosGenerales(correo);
+		if(!user.isEmpty()) {
+	         	user.get(0).getcod_cliente();
+			    user.get(0).getdireccion();
+			    user.get(0).getNombre_completo();
+			    user.get(0).getusername();
+		        user.get(0).getTelefono();
+			    user.get(0).getid();
+			    user.get(0).getNumero_cc();
+			    user.get(0).gettipo_documento();
+			    return user;
+		}
 		// TODO Auto-generated method stub
-		return repoUser.datosGenerales(correo);
+		return null;
 	}
 
 	@Override
@@ -86,12 +100,21 @@ public class ImplementsIServiceUser implements IServiceUser {
 		return  repoUser.buscarPorid(id);
 	}
 
-	
+	@Override
+	public void updateDataUserGeneral(String id_number, String data_type, String data_phone, String data_address, String iduser) throws Exception {
+		// TODO Auto-generated method stub
+		if(!id_number.isEmpty()  &&  !data_phone.isEmpty() && !data_address.isEmpty() && !iduser.isEmpty()) {
+			repoUser.updateDataUserGeneral(id_number, data_type, data_phone, data_address, iduser);
+			throw new Exception("update");
+		}else {
+			throw new Exception("hay datos vacios");
+		}
+		
+		
+	}
+
+
 
 	
-
-
-
-
 
 }

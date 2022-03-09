@@ -43,6 +43,7 @@ public class DataGeneral {
     
     @Column(name = "Telefono")
     private String Telefono;
+
  
 
 }

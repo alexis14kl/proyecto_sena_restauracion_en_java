@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 05-03-2022 a las 21:31:06
--- Versión del servidor: 10.4.21-MariaDB
--- Versión de PHP: 8.0.12
+-- Tiempo de generación: 09-03-2022 a las 21:26:24
+-- Versión del servidor: 10.4.22-MariaDB
+-- Versión de PHP: 8.1.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -31,7 +31,7 @@ CREATE TABLE `datosgenerales` (
   `iD_Datos_Generales` int(11) NOT NULL,
   `idusuario` int(11) NOT NULL,
   `cod_cliente` int(8) NOT NULL,
-  `tipo_documento` varchar(20) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `tipo_documento` varchar(25) COLLATE utf8_spanish_ci DEFAULT NULL,
   `Numero_cc` varchar(10) COLLATE utf8_spanish_ci NOT NULL,
   `direccion` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
   `Telefono` varchar(13) COLLATE utf8_spanish_ci NOT NULL
@@ -42,8 +42,8 @@ CREATE TABLE `datosgenerales` (
 --
 
 INSERT INTO `datosgenerales` (`iD_Datos_Generales`, `idusuario`, `cod_cliente`, `tipo_documento`, `Numero_cc`, `direccion`, `Telefono`) VALUES
-(15, 15, 415436, 'no', 'no ', 'no', 'no'),
-(16, 16, 766307, 'no', 'no ', 'no', 'no');
+(23, 23, 745413, 'CC', '24', '212', '2312'),
+(25, 25, 10103, 'Cédula de Extranjería', '1212121212', '212121212121221', '1212121212');
 
 -- --------------------------------------------------------
 
@@ -80,8 +80,8 @@ CREATE TABLE `usuarioperfil` (
 --
 
 INSERT INTO `usuarioperfil` (`idusuario`, `idperfil`) VALUES
-(15, 1),
-(16, 1);
+(23, 1),
+(25, 1);
 
 -- --------------------------------------------------------
 
@@ -103,8 +103,8 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `Nombre_completo`, `username`, `password`, `estatus`, `conect`) VALUES
-(15, 'dfd', 'daira@gmail.com', '{noop}123', 1, 0),
-(16, 'yilson', 'rapalexism@gmail.com', '{noop}123', 1, 0);
+(23, 'daddad', 'a@aaaa', '{noop}123', 1, 1),
+(25, 'rapalexism@gmail.com', 'rapalexism@gmail.com', '{noop}123', 1, 1);
 
 --
 -- Índices para tablas volcadas
@@ -144,7 +144,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `datosgenerales`
 --
 ALTER TABLE `datosgenerales`
-  MODIFY `iD_Datos_Generales` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `iD_Datos_Generales` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT de la tabla `perfiles`
@@ -156,7 +156,7 @@ ALTER TABLE `perfiles`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- Restricciones para tablas volcadas

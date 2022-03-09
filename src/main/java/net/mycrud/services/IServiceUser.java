@@ -27,4 +27,6 @@ public interface IServiceUser {
 	public List<UserDTO>datosGenerales(String correo);
 	public void delete(int id);
 	public List<User> buscarPorid(int id);
+	void updateDataUserGeneral(String  id_number, String data_type, String data_phone, String data_address, String iduser) throws Exception;
+	//end check
 }

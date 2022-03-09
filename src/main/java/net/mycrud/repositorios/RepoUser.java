@@ -55,6 +55,17 @@ public interface RepoUser extends CrudRepository<User, Integer> {
 	@Query(value = "select * from usuarios where id =:id", nativeQuery = true)
 	public List<User> buscarPorid(int id);
 	
+	//update info general
+	@Modifying
+	@Transactional
+	@Query(value = "UPDATE datosgenerales "
+			+ "SET Numero_cc =:id_number, "
+			+ "tipo_documento =:data_type, "
+			+ "Telefono  =:data_phone, "
+			+ "direccion =:data_address "
+			+ "WHERE idusuario =:iduser  ", nativeQuery = true)
+	void updateDataUserGeneral(String id_number, String data_type, String data_phone, String data_address, String iduser) throws Exception;;
+	
 
 
 }

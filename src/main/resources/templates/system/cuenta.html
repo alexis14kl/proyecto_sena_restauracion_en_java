@@ -81,51 +81,51 @@
 												<!-- form -->
 												<div id="f" style="margin-left: 50%; width: 100%;">
 													<hr>
-													<div id="div1">
+													<div th:each="datos:${data}" id="div1">
 														<table border class="table-striped table-hover">
 															<tr align=center>
 																<th><p class="infoG">#Cuenta</p></th>
-																<td>[[${cod}]]</td>
+																<td><p>[[${datos.getcod_cliente}]]</p></td>
 															</tr>
 
 															<tr align=center>
 																<th><p class="infoG">Mi asesor</p></th>
-																<td>[[${asesor}]]</td>
+																<td><p>No aplica</p></td>
 															</tr>
 
 															<tr align=center>
 																<th><p class="infoG">Dirección de envío</p></th>
-																<td>[[${address}]]</td>
+																<td><P id="dataaddress">[[${datos.getdireccion}]]</P></td>
 															</tr>
 
 															<tr align=center>
 																<th><p class="infoG">Nombre</p></th>
-																<td>[[${name}]]</td>
+																<td><P>[[${datos.getNombre_completo}]]</P></td>
 															</tr>
 
 															<tr align=center>
 																<th><p class="infoG">Número de Identificación</p></th>
-																<td>[[${cc}]]</td>
+																<td><p id="dataNumberid">[[${datos.getNumero_cc}]]</p></td>
 															</tr>
 
 															<tr align=center>
 																<th><p class="infoG">Tipo de Identificación</p></th>
-																<td>[[${TD}]]</td>
+																<td><p id="datatype">[[${datos.gettipo_documento}]]</p></td>
 															</tr>
 
 															<tr align=center>
 																<th><p class="infoG">Email</p></th>
-																<td>[[${email}]]</td>
+																<td><p id="dataemail">[[${datos.getusername}]]</p></td>
 															</tr>
 
 															<tr align=center>
 																<th><p class="infoG">Teléfono celular</p></th>
-																<td>[[${phone}]]</td>
+																<td><p id="dataphone">[[${datos.getTelefono}]]</p></td>
 															</tr>
 
 															<tr align=center>
 																<th><p class="infoG">Actualizar Información</p></th>
-																<td><i onclick="updated();"
+																<td><i th:onclick="updated('[[${datos.getid}]]');"
 																	style="color: white; cursor: pointer;"
 																	class="fa fa-pencil-square-o btn btn-primary"
 																	aria-hidden="true"></i></td>
@@ -133,7 +133,7 @@
 
 															<tr align=center>
 																<th><p class="infoG">Eliminar Cuenta</p></th>
-																<td><i th:onclick="deleted('[[${iduser}]]');"
+																<td><i th:onclick="deleted('[[${datos.getid}]]');"
 																	style="color: white; cursor: pointer;"
 																	class="fa fa-trash btn btn-danger" aria-hidden="true"></i>
 																</td>
@@ -259,41 +259,47 @@
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLabel">New message</h5>
-					<button type="button" class="btn-close" data-bs-dismiss="modal"
+					<h5 class="modal-title" id="exampleModalLabel">Actualización De Datos</h5>
+					<button onclick="vaciar();" type="button" class="btn-close" data-bs-dismiss="modal"
 						aria-label="Close"></button>
 				</div>
 				<div class="modal-body">
 					<!-- form -->
 					<div>
+					    <input id="iduser" type="hidden">
 						<div class="mb-3">
 							<label for="recipient-name" class="col-form-label">Número
-								de Identificación:</label> <input type="text" class="form-control"
-								id="recipient-name">
+								de Identificación:</label> 
+								<input onchange="style.backgroundColor='white';" type="number" class="form-control"
+								id="data_number">
 						</div>
 
 						<div class="mb-3">
-							<label for="recipient-name" class="col-form-label">Tipo
-								de Identificación:</label>
-								 <select styleid="typeDocument" name="typeDocument" class="form-control">
-									<option value="CC">Cédula de Ciudadanía</option>
-									<option value="CE">Cédula de Extranjería</option>
-									<option value="PS">Pasaporte</option>
+							<label for="recipient-name" class="col-form-label">Tipo de Identificación:</label>
+								 <select id="data_type" styleid="typeDocument" name="typeDocument" class="form-control">
+									<option value="Cédula de Ciudadanía">Cédula de Ciudadanía</option>
+									<option value="Cédula de Extranjería">Cédula de Extranjería</option>
+									<option value="Pasaporte">Pasaporte</option>
 							</select>
 						</div>
 					</div>
 
 					<div class="mb-3">
-						<label for="recipient-name" class="col-form-label">Teléfono
-							celular:</label> <input type="text" class="form-control"
-							id="recipient-name">
+						<label for="recipient-name" class="col-form-label">Teléfono celular:</label>
+							<input onchange="style.backgroundColor='white';" type="number" class="form-control" id="data_phone" pattern="[0-9]+">
+					</div>
+					
+					<div class="mb-3">
+						<label for="recipient-name" class="col-form-label">Dirección de Vivienda:</label> 
+						<input type="text" class="form-control"  id="data_address">
 					</div>
 					<!-- end from -->
 				</div>
+				
 				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary"
+					<button onclick="vaciar();" type="button" class="btn btn-secondary"
 						data-bs-dismiss="modal">Salir</button>
-					<button type="button" class="btn btn-primary">Update</button>
+					<button onclick="editar();" type="button" class="btn btn-primary">Update</button>
 				</div>
 			</div>
 		</div>
