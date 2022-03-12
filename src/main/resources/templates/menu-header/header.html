@@ -1,34 +1,59 @@
 <header style="background: black;" th:fragment="header">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-3">
-                    <div class="full">
-                        <a class="logo" th:href="@{/}"><h1 class="logo_index">ALEXIS MALAMBO</h5></a>
-                    </div>
-                </div>
-                <div class="col-md-9">
-                    <div class="full">
-                        <div class="right_header_info">
-                            <ul>
-                                <li class="dinone">Contact Us : <img style="margin-right: 15px;margin-left: 15px;" src="images/phone_icon.png" alt="#"><a href="#">987-654-3210</a></li>
-                                <li class="dinone"><img style="margin-right: 15px;" src="images/mail_icon.png" alt="#"><a href="#">Rapalexism@gmail.com</a></li>
-                                <li class="dinone"><img style="margin-right: 15px;height: 21px;position: relative;top: -2px;" src="images/location_icon.png" alt="#"><a href="#">Bogot�</a></li>
-                                <!-- options no loggin -->
-                                <li sec:authorize="isAnonymous()" class="button_user"><a th:if="${accessbloqueo} != 'login'" class="button active" th:href="@{/login}">Access</a><a th:if="${register} != 'register'" class="button" th:href="@{/register}">Register</a></li>
-                                <!-- options login -->
-                                <li sec:authorize="isAuthenticated()"  class="button_user">
-                                <a th:if="${session.datosUser != null}" style="background:transparent;border:none;"><i style="color:#d8b00f;" class="fa fa-user"></i>&nbsp;[[${session.datosUser.Nombre_completo}]]</a>
-                                <a th:onclick="logout('[[${session.datosUser.username}]]')" class="button active btn btn-danger"  ><i class="fa fa-power-off" aria-hidden="true"></i></a></li>                          
-                                <li>
-                                    <button type="button" id="sidebarCollapse">
-                                        <img src="images/menu_icon.png" alt="#">
-                                    </button>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-  
+  <meta charset="UTF-8">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-3">
+				<div class="full">
+					<a class="logo" th:href="@{/}"><h1 class="logo_index">
+							ALEXIS MALAMBO
+							</h5></a>
+				</div>
+			</div>
+			<div class="col-md-9">
+				<div class="full">
+					<div class="right_header_info">
+						<ul>
+							<li class="dinone">Contact Us : <img
+								style="margin-right: 15px; margin-left: 15px;"
+								src="images/phone_icon.png" alt="#"><a href="#">987-654-3210</a></li>
+							<li class="dinone"><img style="margin-right: 15px;"
+								src="images/mail_icon.png" alt="#"><a href="#">Rapalexism@gmail.com</a></li>
+							<li class="dinone"><img
+								style="margin-right: 15px; height: 21px; position: relative; top: -2px;"
+								src="images/location_icon.png" alt="#"><a href="#">Bogotá</a></li>
+							<!-- options no loggin -->
+							<li sec:authorize="isAnonymous()" class="button_user"><a
+								th:if="${accessbloqueo} != 'login'" class="button active"
+								th:href="@{/login}">Access</a><a
+								th:if="${register} != 'register'" class="button"
+								th:href="@{/register}">Register</a></li>
+							<!-- options login -->
+							<li sec:authorize="isAuthenticated()" class="button_user"><a
+								th:if="${session.datosUser != null}"
+								style="background: transparent; border: none;"><i
+									style="color: #d8b00f;" class="fa fa-user"></i>&nbsp;[[${session.datosUser.Nombre_completo}]]</a>
+								<a th:onclick="logout('[[${session.datosUser.username}]]')"
+								class="button active btn btn-danger"> <i
+									class="fa fa-power-off" aria-hidden="true"></i></a></li>
+							<li>
+								<button type="button" id="sidebarCollapse">
+									<img src="images/menu_icon.png" alt="#">
+								</button> 
+								<!-- button desplegar optiones generales users -->
+							<li sec:authorize="isAuthenticated()"  class="nav-item dropdown"
+								style="background: #0d6efd; margin-top: -2%;"><a
+								class="nav-link " data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false" style="color:white"><i class="fa fa-arrow-circle-down" aria-hidden="true"></i></a>
+								<ul class="dropdown-menu">
+									<li id="infogeneral" ><a class="dropdown-item" href="/cuenta" style="color:#0d6efd;">Información General</a></li>
+									<li><a th:onclick="cambiarp('[[${session.datosUser.id}]]');" class="dropdown-item" href="#" style="color:#0d6efd;">Cambiar contraseña</a></li>
+									<li><hr class="dropdown-divider"></li>
+								</ul>
+							</li>
+							<!-- end button optiones users -->
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</header>

@@ -69,3 +69,17 @@
 		System.out.println("perfil = >" + perfil);
 		return "redirect:/register";
 	}
+	
+	
+	
+	ejemplo de codigo apirest
+	@GetMapping(path = "/hola")
+	public ResponseEntity<List<Message>> hola(String id, int i) {
+		//i id user
+		//id destinario
+		
+		System.out.println("mensaages ok " + id + i);
+		List<Message>l = implementsServiceMessage.seachMessages(id);
+		System.out.println("consullta mensajes" + l.toString());
+		return ResponseEntity.status(HttpStatus.OK).body(l);
+	}

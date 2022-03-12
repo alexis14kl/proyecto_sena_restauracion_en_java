@@ -64,7 +64,17 @@ public interface RepoUser extends CrudRepository<User, Integer> {
 			+ "Telefono  =:data_phone, "
 			+ "direccion =:data_address "
 			+ "WHERE idusuario =:iduser  ", nativeQuery = true)
-	void updateDataUserGeneral(String id_number, String data_type, String data_phone, String data_address, String iduser) throws Exception;;
+	void updateDataUserGeneral(String id_number, String data_type, String data_phone, String data_address, String iduser) throws Exception;
+	
+	
+	//update info general
+	@Modifying
+	@Transactional
+	@Query(value = " UPDATE usuarios SET usuarios.password = '{noop}1234' "
+			+ "WHERE usuarios.id = 32 ", nativeQuery = true)
+	void updatePassword(int id, String passanterior, String newpass) throws Exception;
+	
+	
 	
 
 

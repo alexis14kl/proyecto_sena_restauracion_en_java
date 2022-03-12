@@ -32,7 +32,8 @@
 <link rel="stylesheet" href="css/dark.css">
 <!-- bootraps actualizado version 5 -->
 <!-- CSS only -->
-<link href="bootstraps5/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+<link href="bootstraps5/bootstrap.min.css" rel="stylesheet"
+	crossorigin="anonymous">
 <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
@@ -226,13 +227,126 @@
 				}
 			})
 		})
+		
+		//function update cuenta
+		$(document).ready(function(){
+	var id =  `[[${session.datosUser.id}]]`;
+	$.get(
+	    '/indexValidDate',
+	    {id:id},
+	    function(data){
+
+	    	if (!isNaN(data)) {
+	    		  console.log('Es un número');
+	    		}else{
+	    			setTimeout(function() {
+	    		        Swal.fire({
+					icon: 'info',
+					title: '<p style="justify-content: center;color:red;" >Señor(a) [[${session.datosUser.Nombre_completo}]] Te invitamos a registrar tus datos de envio</p>',
+					padding: '1rem',
+					toast: true,
+					position: 'top-end',
+					showConfirmButton: true,
+					confirmButtonText: '<button class="btn btn-primary">Si</button>'   ,
+					showCancelButton: true,
+					cancelButtonText:'<button class="btn btn-primary">No</button>'   ,
+					allowOutsideClick: false,
+					allowEscapeKey: false,
+					allowEnterKey: false
+				}).then((result) => {
+					  if (result.isConfirmed) {
+						    window.location = '/cuenta';
+						  }
+						})//end valid  [[${session.datosUser.Nombre_completo}]]
+	    		}, 4000);
+	    		}
+	    	
+	    	
+	    }
+	)
+})
 	</script>
 	<script th:src="@{/js/logout.js}" type="text/javascript"></script>
 	<!-- alert personalizadas libreria  abrir     <script src="sweetalert2.all.min.js"></script>  -->
 	<script src="js/sweetalert2@11.js"></script>
 	<!-- bootstrap5 -->
 	<!-- JavaScript Bundle with Popper -->
-<script src="bootstraps5/js/bootstrap.bundle.min.js"  crossorigin="anonymous"></script>
-</body>
+	<script src="bootstraps5/js/bootstrap.bundle.min.js"
+		crossorigin="anonymous"></script>
 
+	<!-- modal update p -->
+	<script type="text/javascript">
+		  function cambiarp(id){
+			  alert(id)
+			  $('#id').val(id);
+			  $('#modalPass').modal('show');
+			  
+		  }
+		  function salirp(){
+			  $('#modalPass').modal('hide');
+		  }
+		  function actualizarp(){
+			  var id = $('#id').val();
+			  var passanterior = $('#passanterior').val();
+			  var newpass = $('#newpass').val();
+			  $.get(
+						'/updatePassword',
+						{id:id,
+							passanterior:passanterior,
+							newpass:newpass},
+						function(data){
+							alert("enviado " + data)
+							$.get(
+							   '/endPassword',
+							   {id:id,
+									passanterior:passanterior,
+									newpass:newpass},
+							   function(data2){
+								   alert(data2);
+							   }
+							);
+						}
+				  )
+		  }
+		</script>
+	<div class="modal fade" id="modalPass" tabindex="-1"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">New message</h5>
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span  onclick="salirp();" aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<form>
+					    <input id="id">
+						<div class="form-group">
+							<label for="recipient-name" class="col-form-label">Contraseña Anterior:</label>
+							<input id="passanterior" type="text" class="form-control" >
+						</div>
+						<div class="form-group">
+							<label for="recipient-name" class="col-form-label">Nueva Contraseña:</label>
+							<input id="newpass" type="text" class="form-control" >
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button onclick="salirp();" type="button" class="btn btn-secondary"
+						data-dismiss="modal">Salir</button>
+					<button onclick="actualizarp();" type="button" class="btn btn-primary">Cambiar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end modal p -->
+
+
+	<script type="text/javascript">
+
+</script>
+
+</body>
 </html>
