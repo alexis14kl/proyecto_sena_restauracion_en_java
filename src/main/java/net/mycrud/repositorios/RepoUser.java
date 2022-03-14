@@ -70,10 +70,9 @@ public interface RepoUser extends CrudRepository<User, Integer> {
 	//update info general
 	@Modifying
 	@Transactional
-	@Query(value = " UPDATE usuarios SET usuarios.password = '{noop}1234' "
-			+ "WHERE usuarios.id = 32 ", nativeQuery = true)
-	void updatePassword(int id, String passanterior, String newpass) throws Exception;
-	
+	@Query(value = " UPDATE usuarios SET usuarios.password =:newpass "
+			+ "WHERE usuarios.id =:id ", nativeQuery = true)
+	void updatePassword(int id,  String newpass) throws Exception;
 	
 	
 

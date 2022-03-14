@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<!-- basic -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<!-- mobile metas -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+<!-- site metas -->
+<title>Sistema Index</title>
+<meta name="keywords" content="MY WEB">
+<meta name="description" content="">
+<meta name="author" content="YILSON ALEXIS MALAMBO MADRIGAL">
+<meta http-equiv='cache-control' content='no-cache'>
+<meta http-equiv='expires' content='0'>
+<meta http-equiv='pragma' content='no-cache'>
+<!-- bootstrap css -->
+<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+<!-- owl css -->
+<link rel="stylesheet" th:href="@{/css/owl.carousel.min.css}">
+<!-- style css -->
+<link rel="stylesheet" th:href="@{/css/style.css}">
+<!-- responsive-->
+<link rel="stylesheet" th:href="@{/css/responsive.css}">
+<!-- awesome fontfamily -->
+<link rel="stylesheet"
+	th:href="@{/font-awesome/css/font-awesome.min.css}">
+<link rel="stylesheet" th:href="@{/font-awesome/css/font-awesome.css}">
+
+<!-- alertas personalizadas js -->
+<link rel="stylesheet" href="css/dark.css">
+<!-- bootraps actualizado version 5 -->
+<!-- CSS only -->
+<link href="bootstraps5/bootstrap.min.css" rel="stylesheet"
+	crossorigin="anonymous">
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+<link rel="stylesheet" href="css/galleryProductCss/product.css">
+</head>
+<!-- body -->
+<!-- body -->
+<body class="main-layout">
+	<!-- loader  -->
+	<div class="loader_bg">
+		<div class="loader">
+			<img id="imgl" th:src="@{/images/loading.gif}" alt="" />
+		</div>
+	</div>
+
+	<div id="container1" class="wrapper">
+		<!-- end loader -->
+
+		<!-- menu -->
+		<div th:insert="/menu-header/menu :: menu"></div>
+		<!-- end menu -->
+
+		<div id="content">
+			<!-- header -->
+			<div th:insert="menu-header/header :: header"></div>
+			<!-- end header -->
+			<!-- start slider section -->
+
+			<!-- section profile -->
+			<section class="resip_section">
+				<div class="container">
+					<div style="    margin-top: 6%;" class="row">
+						<div class="container">
+							<div class="row">
+								<div class="col-md-12">
+									<div style="background: #d8b00f; width: 100%;">
+										<!--// profile -->
+										<div class="card-panel z-depth-2 Author">
+											<div class="Author-profile">
+												<!-- galeria pro -->
+													<div class="is-width-auto">
+		<div class="is-flex">
+			<div
+				class="is-column bees-col is-no-margin-right is-full-width is-no-margin-left">
+				<div id="list-deferred-wrapper" class="bees-grid"
+					cartitems="[object Object]">
+					<div class="bees-grid">
+						<div
+							class="bees-card is-bordered bees-product-card bees-recommendation-card is-flex bees-col is-3-col is-4-col-tablet is-4-col-phone is-column">
+							<a
+								href="/product/000000000000002512?recommendation_id={&quot;experiment_id&quot;: &quot;caadfc87-b202-450f-930b-7cf85417d110&quot;, &quot;group_id&quot;: &quot;306c9b26-9d29-4734-bc1d-938506b14834&quot;, &quot;branch_name&quot;: &quot;master&quot;, &quot;date&quot;: &quot;2022-03-14T00:31:21Z&quot;}&amp;is_suggested=true&amp;recommendation_type=QUICK_ORDER&amp;recommended_quantity=26&amp;is_default_recommendation=false"
+								class="bees-link-wrapper bees-link-no-style"><div
+									class="is-column is-flex is-row-phone">
+									<div
+										class="is-2-col-phone is-center-center is-flex bees-product-image-container">
+										<img class="bees-image bees-product-image"
+											src="https://mybees.com.co/media/catalog/product//p/o/poker_rn_330x30_2512_1.png"
+											alt="Poker R 330cc X 30 - 2512">
+									</div>
+									<div class="bees-spacer inline inline-m is-hidden-medium-plus"></div>
+									<div class="is-3-col-phone is-column is-self-center">
+										<div class="bees-spacer stack stack-m"></div>
+										<span title="Poker R 330cc X 30 - 2512"
+											class="bees-text bees-product-card-title is-text-weight-medium truncate-after-3-lines is-line-height-normal">Poker
+											R 330cc X 30 - 2512</span>
+										<div class="is-flex">
+											<span
+												class="bees-text bees-product-card-returnable-icon is-medium">♻</span>
+										</div>
+										<div class="bees-spacer stack stack-m"></div>
+										<div class="price-and-price-by-unit">
+											<span class=""><span
+												class="bees-number-display is-black-color">$49.800,0</span></span>
+										</div>
+										<div class="bees-spacer stack stack-s"></div>
+									</div>
+								</div></a>
+							<div class="bees-spacer stack stack-m"></div>
+							<div class="bees-spacer is-flex-1 stack stack-l"></div>
+							<form class="bees-add-form is-flex is-column">
+								<div class="is-flex is-row">
+									<div class="bees-product-qty">
+										<button
+											class="bees-button qty-button-minus is-round is-secondary"
+											type="button">-</button>
+										<label><span class="visually-hidden"> </span><input
+											name="quantity" class="requested-qty" type="text" min="0"
+											max="9999" value="26"></label>
+										<button
+											class="bees-button qty-button-plus is-round is-secondary"
+											type="button">+</button>
+									</div>
+									<div class="bees-spacer inline inline-m"></div>
+									<button
+										class="bees-button bees-add-to-cart is-uppercase is-secondary is-center-center is-font-size-xsmall"
+										type="submit">Añadir</button>
+								</div>
+							</form>
+						</div>
+						<div
+							class="bees-card is-bordered bees-product-card bees-recommendation-card is-flex bees-col is-3-col is-4-col-tablet is-4-col-phone is-column">
+							<a
+								href="/product/000000000000003128?recommendation_id={&quot;experiment_id&quot;: &quot;caadfc87-b202-450f-930b-7cf85417d110&quot;, &quot;group_id&quot;: &quot;306c9b26-9d29-4734-bc1d-938506b14834&quot;, &quot;branch_name&quot;: &quot;master&quot;, &quot;date&quot;: &quot;2022-03-14T00:31:21Z&quot;}&amp;is_suggested=true&amp;recommendation_type=QUICK_ORDER&amp;recommended_quantity=22&amp;is_default_recommendation=false"
+								class="bees-link-wrapper bees-link-no-style"><div
+									class="is-column is-flex is-row-phone">
+									<div
+										class="is-2-col-phone is-center-center is-flex bees-product-image-container">
+										<img class="bees-image bees-product-image"
+											src="https://mybees.com.co/media/catalog/product//a/g/aguila_rn_330cc_x_30_-_3128_1.png"
+											alt="Aguila RN 330cc X 30 - 3128">
+									</div>
+									<div class="bees-spacer inline inline-m is-hidden-medium-plus"></div>
+									<div class="is-3-col-phone is-column is-self-center">
+										<div class="bees-spacer stack stack-m"></div>
+										<span title="Aguila RN 330cc X 30 - 3128"
+											class="bees-text bees-product-card-title is-text-weight-medium truncate-after-3-lines is-line-height-normal">Aguila
+											RN 330cc X 30 - 3128</span>
+										<div class="is-flex">
+											<span
+												class="bees-text bees-product-card-returnable-icon is-medium">♻</span>
+										</div>
+										<div class="bees-spacer stack stack-m"></div>
+										<div class="price-and-price-by-unit">
+											<span class=""><span
+												class="bees-number-display is-black-color">$49.800,0</span></span>
+										</div>
+										<div class="bees-spacer stack stack-s"></div>
+									</div>
+								</div></a>
+							<div class="bees-spacer stack stack-m"></div>
+							<div class="bees-spacer is-flex-1 stack stack-l"></div>
+							<form class="bees-add-form is-flex is-column">
+								<div class="is-flex is-row">
+									<div class="bees-product-qty">
+										<button
+											class="bees-button qty-button-minus is-round is-secondary"
+											type="button">-</button>
+										<label><span class="visually-hidden"> </span><input
+											name="quantity" class="requested-qty" type="text" min="0"
+											max="9999" value="22"></label>
+										<button
+											class="bees-button qty-button-plus is-round is-secondary"
+											type="button">+</button>
+									</div>
+									<div class="bees-spacer inline inline-m"></div>
+									<button
+										class="bees-button bees-add-to-cart is-uppercase is-secondary is-center-center is-font-size-xsmall"
+										type="submit">Añadir</button>
+								</div>
+							</form>
+						</div>
+						<div
+							class="bees-card is-bordered bees-product-card bees-recommendation-card is-flex bees-col is-3-col is-4-col-tablet is-4-col-phone is-column">
+							<a
+								href="/product/000000000000002160?recommendation_id={&quot;experiment_id&quot;: &quot;caadfc87-b202-450f-930b-7cf85417d110&quot;, &quot;group_id&quot;: &quot;306c9b26-9d29-4734-bc1d-938506b14834&quot;, &quot;branch_name&quot;: &quot;master&quot;, &quot;date&quot;: &quot;2022-03-14T00:31:21Z&quot;}&amp;is_suggested=true&amp;recommendation_type=QUICK_ORDER&amp;recommended_quantity=2&amp;is_default_recommendation=false"
+								class="bees-link-wrapper bees-link-no-style"><div
+									class="is-column is-flex is-row-phone">
+									<div
+										class="is-2-col-phone is-center-center is-flex bees-product-image-container">
+										<img class="bees-image bees-product-image"
+											src="https://mybees.com.co/media/catalog/product//a/g/aguila_lig_r_330cc_x_30_-_2160_1_1_1_1.png"
+											alt="Aguila Lig R 330cc X 30 - 2160">
+									</div>
+									<div class="bees-spacer inline inline-m is-hidden-medium-plus"></div>
+									<div class="is-3-col-phone is-column is-self-center">
+										<div class="bees-spacer stack stack-m"></div>
+										<span title="Aguila Lig R 330cc X 30 - 2160"
+											class="bees-text bees-product-card-title is-text-weight-medium truncate-after-3-lines is-line-height-normal">Aguila
+											Lig R 330cc X 30 - 2160</span>
+										<div class="is-flex">
+											<span
+												class="bees-text bees-product-card-returnable-icon is-medium">♻</span>
+										</div>
+										<div class="bees-spacer stack stack-m"></div>
+										<div class="price-and-price-by-unit">
+											<span class=""><span
+												class="bees-number-display is-black-color">$49.800,0</span></span>
+										</div>
+										<div class="bees-spacer stack stack-s"></div>
+									</div>
+								</div></a>
+							<div class="bees-spacer stack stack-m"></div>
+							<div class="bees-spacer is-flex-1 stack stack-l"></div>
+							<form class="bees-add-form is-flex is-column">
+								<div class="is-flex is-row">
+									<div class="bees-product-qty">
+										<button
+											class="bees-button qty-button-minus is-round is-secondary"
+											type="button">-</button>
+										<label><span class="visually-hidden"> </span><input
+											name="quantity" class="requested-qty" type="text" min="0"
+											max="9999" value="2"></label>
+										<button
+											class="bees-button qty-button-plus is-round is-secondary"
+											type="button">+</button>
+									</div>
+									<div class="bees-spacer inline inline-m"></div>
+									<button
+										class="bees-button bees-add-to-cart is-uppercase is-secondary is-center-center is-font-size-xsmall"
+										type="submit">Añadir</button>
+								</div>
+							</form>
+						</div>
+						<div
+							class="bees-card is-bordered bees-product-card bees-recommendation-card is-flex bees-col is-3-col is-4-col-tablet is-4-col-phone is-column">
+							<a
+								href="/product/000000000000009508?recommendation_id={&quot;experiment_id&quot;: &quot;caadfc87-b202-450f-930b-7cf85417d110&quot;, &quot;group_id&quot;: &quot;306c9b26-9d29-4734-bc1d-938506b14834&quot;, &quot;branch_name&quot;: &quot;master&quot;, &quot;date&quot;: &quot;2022-03-14T00:31:21Z&quot;}&amp;is_suggested=true&amp;recommendation_type=QUICK_ORDER&amp;recommended_quantity=2&amp;is_default_recommendation=false"
+								class="bees-link-wrapper bees-link-no-style"><div
+									class="is-column is-flex is-row-phone">
+									<div
+										class="is-2-col-phone is-center-center is-flex bees-product-image-container">
+										<img class="bees-image bees-product-image"
+											src="https://mybees.com.co/media/catalog/product//c/o/coronita_nr_210cc_x_6_-_9508.png"
+											alt="Coronita NR 210cc X 6 - 9508">
+									</div>
+									<div class="bees-spacer inline inline-m is-hidden-medium-plus"></div>
+									<div class="is-3-col-phone is-column is-self-center">
+										<div class="bees-spacer stack stack-m"></div>
+										<span title="Coronita NR 210cc X 6 - 9508"
+											class="bees-text bees-product-card-title is-text-weight-medium truncate-after-3-lines is-line-height-normal">Coronita
+											NR 210cc X 6 - 9508</span>
+										<div class="is-flex"></div>
+										<div class="bees-spacer stack stack-m"></div>
+										<div class="price-and-price-by-unit">
+											<span class=""><span
+												class="bees-number-display is-black-color">$12.150,0</span></span>
+										</div>
+										<div class="bees-spacer stack stack-s"></div>
+									</div>
+								</div></a>
+							<div class="bees-spacer stack stack-m"></div>
+							<div class="bees-spacer is-flex-1 stack stack-l"></div>
+							<form class="bees-add-form is-flex is-column">
+								<div class="is-flex is-row">
+									<div class="bees-product-qty">
+										<button
+											class="bees-button qty-button-minus is-round is-secondary"
+											type="button">-</button>
+										<label><span class="visually-hidden"> </span><input
+											name="quantity" class="requested-qty" type="text" min="0"
+											max="9999" value="2"></label>
+										<button
+											class="bees-button qty-button-plus is-round is-secondary"
+											type="button">+</button>
+									</div>
+									<div class="bees-spacer inline inline-m"></div>
+									<button
+										class="bees-button bees-add-to-cart is-uppercase is-secondary is-center-center is-font-size-xsmall"
+										type="submit">Añadir</button>
+								</div>
+							</form>
+						</div>
+						<div
+							class="bees-card is-bordered bees-product-card bees-recommendation-card is-flex bees-col is-3-col is-4-col-tablet is-4-col-phone is-column">
+							<a
+								href="/product/000000000000002182?recommendation_id={&quot;experiment_id&quot;: &quot;caadfc87-b202-450f-930b-7cf85417d110&quot;, &quot;group_id&quot;: &quot;306c9b26-9d29-4734-bc1d-938506b14834&quot;, &quot;branch_name&quot;: &quot;master&quot;, &quot;date&quot;: &quot;2022-03-14T00:31:21Z&quot;}&amp;is_suggested=true&amp;recommendation_type=QUICK_ORDER&amp;recommended_quantity=1&amp;is_default_recommendation=false"
+								class="bees-link-wrapper bees-link-no-style"><div
+									class="is-column is-flex is-row-phone">
+									<div
+										class="is-2-col-phone is-center-center is-flex bees-product-image-container">
+										<img class="bees-image bees-product-image"
+											src="https://mybees.com.co/media/catalog/product//p/o/pony_malta_r__330x30_2182_1.png"
+											alt="Pony Malta R 330cc X 30 - 2182">
+									</div>
+									<div class="bees-spacer inline inline-m is-hidden-medium-plus"></div>
+									<div class="is-3-col-phone is-column is-self-center">
+										<div class="bees-spacer stack stack-m"></div>
+										<span title="Pony Malta R 330cc X 30 - 2182"
+											class="bees-text bees-product-card-title is-text-weight-medium truncate-after-3-lines is-line-height-normal">Pony
+											Malta R 330cc X 30 - 2182</span>
+										<div class="is-flex">
+											<span
+												class="bees-text bees-product-card-returnable-icon is-medium">♻</span>
+										</div>
+										<div class="bees-spacer stack stack-m"></div>
+										<div class="price-and-price-by-unit">
+											<span class=""><span
+												class="bees-number-display is-black-color">$39.900,0</span></span>
+										</div>
+										<div class="bees-spacer stack stack-s"></div>
+									</div>
+								</div></a>
+							<div class="bees-spacer stack stack-m"></div>
+							<div class="bees-spacer is-flex-1 stack stack-l"></div>
+							<form class="bees-add-form is-flex is-column">
+								<div class="is-flex is-row">
+									<div class="bees-product-qty">
+										<button onclick="desminuir(this)" class="desminuir bees-button qty-button-minus is-round is-secondary" type="button">-</button>
+										<label><span class="visually-hidden"> </span><input id="cantidadFinal" class="requested-qty" type="text" min="0" max="9999" value="0"></label>
+											<input id='contador' type="hidden">
+										<button
+											class="bees-button qty-button-plus is-round is-secondary"
+											type="button"  onclick="Aumentar(this)">+</button>
+									</div>
+									<div class="bees-spacer inline inline-m"></div>
+									<button
+										class="bees-button bees-add-to-cart is-uppercase is-secondary is-center-center is-font-size-xsmall"
+										type="submit">Añadir</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+												
+												<!-- end galeria pro -->
+											</div>
+										</div>
+										<!-- end profile -->
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- footer -->
+			<div th:insert="/menu-header/footer :: footer"></div>
+			<!-- end footer -->
+		</div>
+	</div>
+	<div class="overlay"></div>
+	<!-- Javascript files-->
+	<script th:src="@{/js/jquery.min.js}"></script>
+	<script th:src="@{/js/popper.min.js}"></script>
+	<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+	<script th:src="@{/js/owl.carousel.min.js}"></script>
+	<script th:src="@{/js/custom.js}"></script>
+	<script th:src="@{/js/jquery.mCustomScrollbar.concat.min.js}"></script>
+	<script th:src="@{/js/jquery-3.0.0.min.js}"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#cantidadFinal').val(0);
+			$('.desminuir').hide(".desminuir");
+			$('#verProduct').html('');
+			$('#submenu').html('');
+			$('#index').html('');
+			$("#sidebar").mCustomScrollbar({
+				theme : "minimal"
+			});
+			$('#dismiss, .overlay').on('click', function() {
+				$('#sidebar').removeClass('active');
+				$('.overlay').removeClass('active');
+			});
+			$('#sidebarCollapse').on('click', function() {
+				$('#sidebar').addClass('active');
+				$('.overlay').addClass('active');
+				$('.collapse.in').toggleClass('in');
+				$('a[aria-expanded=true]').attr('aria-expanded', 'false');
+			});
+		});
+	</script>
+	<script>
+		$(document).ready(function() {
+			var owl = $('.owl-carousel');
+			owl.owlCarousel({
+				margin : 10,
+				nav : true,
+				loop : true,
+				responsive : {
+					0 : {
+						items : 1
+					},
+					600 : {
+						items : 2
+					},
+					1000 : {
+						items : 5
+					}
+				}
+			})
+		})
+	</script>
+	<script type="text/javascript">
+	
+	var valor=0;
+	function Aumentar(boton){
+	    var contador = document.getElementById("contador").value;
+	        valor++
+	        if(valor > 0){
+	        	$('.desminuir').show();
+	        }
+		        var finalcompra = $('#cantidadFinal').val(valor);
+		        document.getElementById("contador").textContent = valor;
+	}
+	function desminuir(boton){
+		 var contador = document.getElementById("contador").value;
+	        valor--
+	        if(valor < 0 || valor == 0){
+	        	$('.desminuir').hide(".desminuir");
+			} 
+	        	$('#cantidadFinal').val(valor);
+	    	    document.getElementById("contador").textContent = valor;
+	}
+	</script>
+</body>
+
+

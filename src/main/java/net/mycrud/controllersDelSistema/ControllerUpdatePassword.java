@@ -1,6 +1,9 @@
 package net.mycrud.controllersDelSistema;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -16,9 +19,9 @@ public class ControllerUpdatePassword {
 	
 	@GetMapping("/updatePassword")
 	@ResponseBody
-	public String updatePassword(@RequestParam("id") int id, @RequestParam("passanterior") String passanterior,
+	public String updatePassword(@RequestParam("id") int id, 
 			@RequestParam("newpass") String newpass ) {
-		System.out.println("este es el id obtenido " + id + passanterior + newpass );
+		System.out.println("este es el id obtenido " + id  + newpass );
 		try {
 			implementsServiceUpdatePassword.buscarPorid(id);
 		} catch (Exception e) {
@@ -29,13 +32,13 @@ public class ControllerUpdatePassword {
 	
 	@GetMapping("/endPassword")
 	@ResponseBody
-	public String updatepassend(int id, String passanterior, String newpass) {
+	public String updatepassend(HttpServletRequest request,int id,  String newpass) {
 		try {
-			System.out.println("data del controllerAnterior " + id + passanterior + newpass );
-			implementsServiceUpdatePassword.updatePassword(id, passanterior, "{noop}"+newpass);
+			implementsServiceUpdatePassword.updatePassword(id,  "{noop}"+newpass);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			System.out.println("mensaje 2 " + e.getLocalizedMessage().toString());
+			//deleted session
+			SecurityContextLogoutHandler logoutHandler = new SecurityContextLogoutHandler();
+			logoutHandler.logout(request, null, null);
 			return e.getLocalizedMessage();
 		}
 		return null;

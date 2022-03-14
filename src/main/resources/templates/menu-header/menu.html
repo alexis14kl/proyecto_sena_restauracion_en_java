@@ -18,6 +18,7 @@
 		<!-- list login products-->
 		<ul sec:authorize="isAuthenticated()" class="list-unstyled components">
 			<li id="indexSystem"><a th:href="@{/Bienvenido}">Home</a></li>
+			<li id="verProduct"><a href="/productos">Ver productos</a></li>
 			<li><a th:href="@{/registrar_productos}">Registrar Producto</a>
 			</li>
 		</ul>

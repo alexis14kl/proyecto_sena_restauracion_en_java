@@ -30,27 +30,16 @@ public class ImplementsServiceUpdatePassword implements UpdatePassword{
 	}
 
 	@Override
-	public void updatePassword(int id, String passanterior, String newpass) throws Exception {
+	public void updatePassword(int id, String newpass) throws Exception {
 		
-		if(passanterior.isEmpty()) {
+		if(newpass.isEmpty()) {
 			throw new Exception("campo vacio 1");
 		}else {
-			
-			if(newpass.isEmpty()) {
-				throw new Exception("campo vacio 2");
-			}else {
-				repoUser.updatePassword(id, passanterior, newpass);
+				repoUser.updatePassword(id, newpass);
 				throw new Exception("contraseña ok");
 			}
 			
 		}
-		
-	}
-
-	
-
-
-
-
-	
 }
+
+

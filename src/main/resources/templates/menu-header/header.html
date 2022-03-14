@@ -13,14 +13,6 @@
 				<div class="full">
 					<div class="right_header_info">
 						<ul>
-							<li class="dinone">Contact Us : <img
-								style="margin-right: 15px; margin-left: 15px;"
-								src="images/phone_icon.png" alt="#"><a href="#">987-654-3210</a></li>
-							<li class="dinone"><img style="margin-right: 15px;"
-								src="images/mail_icon.png" alt="#"><a href="#">Rapalexism@gmail.com</a></li>
-							<li class="dinone"><img
-								style="margin-right: 15px; height: 21px; position: relative; top: -2px;"
-								src="images/location_icon.png" alt="#"><a href="#">Bogotá</a></li>
 							<!-- options no loggin -->
 							<li sec:authorize="isAnonymous()" class="button_user"><a
 								th:if="${accessbloqueo} != 'login'" class="button active"
@@ -40,7 +32,7 @@
 									<img src="images/menu_icon.png" alt="#">
 								</button> 
 								<!-- button desplegar optiones generales users -->
-							<li sec:authorize="isAuthenticated()"  class="nav-item dropdown"
+							<li id="submenu" sec:authorize="isAuthenticated()"  class="nav-item dropdown"
 								style="background: #0d6efd; margin-top: -2%;"><a
 								class="nav-link " data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false" style="color:white"><i class="fa fa-arrow-circle-down" aria-hidden="true"></i></a>
 								<ul class="dropdown-menu">

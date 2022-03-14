@@ -11,6 +11,8 @@
      line-height: 1.80857;
      font-weight: normal;
 }
+a:hover {
+  opacity: 0.7; }
 /*style the yilson alexis malambo madrigal*/
 .logo_index{
 	color:white;

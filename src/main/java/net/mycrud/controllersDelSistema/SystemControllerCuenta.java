@@ -73,7 +73,6 @@ public String saveDataGeneral(@RequestParam("id_number") String id_number,
 	@GetMapping("/deleted")
 	@ResponseBody
 	public String deleted(HttpServletRequest request,@RequestParam("id") int id) {
-		System.out.println("este es el id " + id);
 		List<User> resultado = ImplementsIServiceUser.buscarPorid(id);
 		if(resultado != null) {
 			SecurityContextLogoutHandler logoutHandler = new SecurityContextLogoutHandler();
