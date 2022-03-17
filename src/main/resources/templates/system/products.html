@@ -76,29 +76,28 @@
 												<!-- galeria pro -->
 													<div class="is-width-auto">
 		<div class="is-flex">
-			<div
-				class="is-column bees-col is-no-margin-right is-full-width is-no-margin-left">
-				<div id="list-deferred-wrapper" class="bees-grid"
-					cartitems="[object Object]">
+			<div class="is-column bees-col is-no-margin-right is-full-width is-no-margin-left">
+				<div id="list-deferred-wrapper" class="bees-grid" cartitems="[object Object]">
 					<div class="bees-grid">
-						<div
-							class="bees-card is-bordered bees-product-card bees-recommendation-card is-flex bees-col is-3-col is-4-col-tablet is-4-col-phone is-column">
-							<a
-								href="/product/000000000000002512?recommendation_id={&quot;experiment_id&quot;: &quot;caadfc87-b202-450f-930b-7cf85417d110&quot;, &quot;group_id&quot;: &quot;306c9b26-9d29-4734-bc1d-938506b14834&quot;, &quot;branch_name&quot;: &quot;master&quot;, &quot;date&quot;: &quot;2022-03-14T00:31:21Z&quot;}&amp;is_suggested=true&amp;recommendation_type=QUICK_ORDER&amp;recommended_quantity=26&amp;is_default_recommendation=false"
-								class="bees-link-wrapper bees-link-no-style"><div
-									class="is-column is-flex is-row-phone">
+					
+					
+					
+						<div th:each="data:${dataProduct}" class="bees-card is-bordered bees-product-card bees-recommendation-card is-flex bees-col is-3-col is-4-col-tablet is-4-col-phone is-column">
+							<a href=""
+								class="bees-link-wrapper bees-link-no-style">
+								<div  class="is-column is-flex is-row-phone">
 									<div
 										class="is-2-col-phone is-center-center is-flex bees-product-image-container">
 										<img class="bees-image bees-product-image"
-											src="https://mybees.com.co/media/catalog/product//p/o/poker_rn_330x30_2512_1.png"
-											alt="Poker R 330cc X 30 - 2512">
+										th:src="@{'/recursos/' + ${data.imagen}}" alt="Poker R 330cc X 30 - 2512">
+											
 									</div>
 									<div class="bees-spacer inline inline-m is-hidden-medium-plus"></div>
 									<div class="is-3-col-phone is-column is-self-center">
 										<div class="bees-spacer stack stack-m"></div>
 										<span title="Poker R 330cc X 30 - 2512"
 											class="bees-text bees-product-card-title is-text-weight-medium truncate-after-3-lines is-line-height-normal">Poker
-											R 330cc X 30 - 2512</span>
+											[[${data.imagen}]]$R 330cc X 30 - 2512</span>
 										<div class="is-flex">
 											<span
 												class="bees-text bees-product-card-returnable-icon is-medium">♻</span>
@@ -110,21 +109,19 @@
 										</div>
 										<div class="bees-spacer stack stack-s"></div>
 									</div>
-								</div></a>
+								</div>
+							</a>
 							<div class="bees-spacer stack stack-m"></div>
 							<div class="bees-spacer is-flex-1 stack stack-l"></div>
 							<form class="bees-add-form is-flex is-column">
 								<div class="is-flex is-row">
 									<div class="bees-product-qty">
-										<button
-											class="bees-button qty-button-minus is-round is-secondary"
-											type="button">-</button>
-										<label><span class="visually-hidden"> </span><input
-											name="quantity" class="requested-qty" type="text" min="0"
-											max="9999" value="26"></label>
+										<button onclick="desminuir(5)" class="desminuir5 bees-button qty-button-minus is-round is-secondary" type="button">-</button>
+										<label><span class="visually-hidden"> </span><input id="cantidadFinal5" class="requested-qty" type="text" min="0" max="9999" value="0"></label>
+											<input id='contador5' type="hidden">
 										<button
 											class="bees-button qty-button-plus is-round is-secondary"
-											type="button">+</button>
+											type="button"  onclick="Aumentar(5)">+</button>
 									</div>
 									<div class="bees-spacer inline inline-m"></div>
 									<button
@@ -133,211 +130,12 @@
 								</div>
 							</form>
 						</div>
-						<div
-							class="bees-card is-bordered bees-product-card bees-recommendation-card is-flex bees-col is-3-col is-4-col-tablet is-4-col-phone is-column">
-							<a
-								href="/product/000000000000003128?recommendation_id={&quot;experiment_id&quot;: &quot;caadfc87-b202-450f-930b-7cf85417d110&quot;, &quot;group_id&quot;: &quot;306c9b26-9d29-4734-bc1d-938506b14834&quot;, &quot;branch_name&quot;: &quot;master&quot;, &quot;date&quot;: &quot;2022-03-14T00:31:21Z&quot;}&amp;is_suggested=true&amp;recommendation_type=QUICK_ORDER&amp;recommended_quantity=22&amp;is_default_recommendation=false"
-								class="bees-link-wrapper bees-link-no-style"><div
-									class="is-column is-flex is-row-phone">
-									<div
-										class="is-2-col-phone is-center-center is-flex bees-product-image-container">
-										<img class="bees-image bees-product-image"
-											src="https://mybees.com.co/media/catalog/product//a/g/aguila_rn_330cc_x_30_-_3128_1.png"
-											alt="Aguila RN 330cc X 30 - 3128">
-									</div>
-									<div class="bees-spacer inline inline-m is-hidden-medium-plus"></div>
-									<div class="is-3-col-phone is-column is-self-center">
-										<div class="bees-spacer stack stack-m"></div>
-										<span title="Aguila RN 330cc X 30 - 3128"
-											class="bees-text bees-product-card-title is-text-weight-medium truncate-after-3-lines is-line-height-normal">Aguila
-											RN 330cc X 30 - 3128</span>
-										<div class="is-flex">
-											<span
-												class="bees-text bees-product-card-returnable-icon is-medium">♻</span>
-										</div>
-										<div class="bees-spacer stack stack-m"></div>
-										<div class="price-and-price-by-unit">
-											<span class=""><span
-												class="bees-number-display is-black-color">$49.800,0</span></span>
-										</div>
-										<div class="bees-spacer stack stack-s"></div>
-									</div>
-								</div></a>
-							<div class="bees-spacer stack stack-m"></div>
-							<div class="bees-spacer is-flex-1 stack stack-l"></div>
-							<form class="bees-add-form is-flex is-column">
-								<div class="is-flex is-row">
-									<div class="bees-product-qty">
-										<button
-											class="bees-button qty-button-minus is-round is-secondary"
-											type="button">-</button>
-										<label><span class="visually-hidden"> </span><input
-											name="quantity" class="requested-qty" type="text" min="0"
-											max="9999" value="22"></label>
-										<button
-											class="bees-button qty-button-plus is-round is-secondary"
-											type="button">+</button>
-									</div>
-									<div class="bees-spacer inline inline-m"></div>
-									<button
-										class="bees-button bees-add-to-cart is-uppercase is-secondary is-center-center is-font-size-xsmall"
-										type="submit">Añadir</button>
-								</div>
-							</form>
-						</div>
-						<div
-							class="bees-card is-bordered bees-product-card bees-recommendation-card is-flex bees-col is-3-col is-4-col-tablet is-4-col-phone is-column">
-							<a
-								href="/product/000000000000002160?recommendation_id={&quot;experiment_id&quot;: &quot;caadfc87-b202-450f-930b-7cf85417d110&quot;, &quot;group_id&quot;: &quot;306c9b26-9d29-4734-bc1d-938506b14834&quot;, &quot;branch_name&quot;: &quot;master&quot;, &quot;date&quot;: &quot;2022-03-14T00:31:21Z&quot;}&amp;is_suggested=true&amp;recommendation_type=QUICK_ORDER&amp;recommended_quantity=2&amp;is_default_recommendation=false"
-								class="bees-link-wrapper bees-link-no-style"><div
-									class="is-column is-flex is-row-phone">
-									<div
-										class="is-2-col-phone is-center-center is-flex bees-product-image-container">
-										<img class="bees-image bees-product-image"
-											src="https://mybees.com.co/media/catalog/product//a/g/aguila_lig_r_330cc_x_30_-_2160_1_1_1_1.png"
-											alt="Aguila Lig R 330cc X 30 - 2160">
-									</div>
-									<div class="bees-spacer inline inline-m is-hidden-medium-plus"></div>
-									<div class="is-3-col-phone is-column is-self-center">
-										<div class="bees-spacer stack stack-m"></div>
-										<span title="Aguila Lig R 330cc X 30 - 2160"
-											class="bees-text bees-product-card-title is-text-weight-medium truncate-after-3-lines is-line-height-normal">Aguila
-											Lig R 330cc X 30 - 2160</span>
-										<div class="is-flex">
-											<span
-												class="bees-text bees-product-card-returnable-icon is-medium">♻</span>
-										</div>
-										<div class="bees-spacer stack stack-m"></div>
-										<div class="price-and-price-by-unit">
-											<span class=""><span
-												class="bees-number-display is-black-color">$49.800,0</span></span>
-										</div>
-										<div class="bees-spacer stack stack-s"></div>
-									</div>
-								</div></a>
-							<div class="bees-spacer stack stack-m"></div>
-							<div class="bees-spacer is-flex-1 stack stack-l"></div>
-							<form class="bees-add-form is-flex is-column">
-								<div class="is-flex is-row">
-									<div class="bees-product-qty">
-										<button
-											class="bees-button qty-button-minus is-round is-secondary"
-											type="button">-</button>
-										<label><span class="visually-hidden"> </span><input
-											name="quantity" class="requested-qty" type="text" min="0"
-											max="9999" value="2"></label>
-										<button
-											class="bees-button qty-button-plus is-round is-secondary"
-											type="button">+</button>
-									</div>
-									<div class="bees-spacer inline inline-m"></div>
-									<button
-										class="bees-button bees-add-to-cart is-uppercase is-secondary is-center-center is-font-size-xsmall"
-										type="submit">Añadir</button>
-								</div>
-							</form>
-						</div>
-						<div
-							class="bees-card is-bordered bees-product-card bees-recommendation-card is-flex bees-col is-3-col is-4-col-tablet is-4-col-phone is-column">
-							<a
-								href="/product/000000000000009508?recommendation_id={&quot;experiment_id&quot;: &quot;caadfc87-b202-450f-930b-7cf85417d110&quot;, &quot;group_id&quot;: &quot;306c9b26-9d29-4734-bc1d-938506b14834&quot;, &quot;branch_name&quot;: &quot;master&quot;, &quot;date&quot;: &quot;2022-03-14T00:31:21Z&quot;}&amp;is_suggested=true&amp;recommendation_type=QUICK_ORDER&amp;recommended_quantity=2&amp;is_default_recommendation=false"
-								class="bees-link-wrapper bees-link-no-style"><div
-									class="is-column is-flex is-row-phone">
-									<div
-										class="is-2-col-phone is-center-center is-flex bees-product-image-container">
-										<img class="bees-image bees-product-image"
-											src="https://mybees.com.co/media/catalog/product//c/o/coronita_nr_210cc_x_6_-_9508.png"
-											alt="Coronita NR 210cc X 6 - 9508">
-									</div>
-									<div class="bees-spacer inline inline-m is-hidden-medium-plus"></div>
-									<div class="is-3-col-phone is-column is-self-center">
-										<div class="bees-spacer stack stack-m"></div>
-										<span title="Coronita NR 210cc X 6 - 9508"
-											class="bees-text bees-product-card-title is-text-weight-medium truncate-after-3-lines is-line-height-normal">Coronita
-											NR 210cc X 6 - 9508</span>
-										<div class="is-flex"></div>
-										<div class="bees-spacer stack stack-m"></div>
-										<div class="price-and-price-by-unit">
-											<span class=""><span
-												class="bees-number-display is-black-color">$12.150,0</span></span>
-										</div>
-										<div class="bees-spacer stack stack-s"></div>
-									</div>
-								</div></a>
-							<div class="bees-spacer stack stack-m"></div>
-							<div class="bees-spacer is-flex-1 stack stack-l"></div>
-							<form class="bees-add-form is-flex is-column">
-								<div class="is-flex is-row">
-									<div class="bees-product-qty">
-										<button
-											class="bees-button qty-button-minus is-round is-secondary"
-											type="button">-</button>
-										<label><span class="visually-hidden"> </span><input
-											name="quantity" class="requested-qty" type="text" min="0"
-											max="9999" value="2"></label>
-										<button
-											class="bees-button qty-button-plus is-round is-secondary"
-											type="button">+</button>
-									</div>
-									<div class="bees-spacer inline inline-m"></div>
-									<button
-										class="bees-button bees-add-to-cart is-uppercase is-secondary is-center-center is-font-size-xsmall"
-										type="submit">Añadir</button>
-								</div>
-							</form>
-						</div>
-						<div
-							class="bees-card is-bordered bees-product-card bees-recommendation-card is-flex bees-col is-3-col is-4-col-tablet is-4-col-phone is-column">
-							<a
-								href="/product/000000000000002182?recommendation_id={&quot;experiment_id&quot;: &quot;caadfc87-b202-450f-930b-7cf85417d110&quot;, &quot;group_id&quot;: &quot;306c9b26-9d29-4734-bc1d-938506b14834&quot;, &quot;branch_name&quot;: &quot;master&quot;, &quot;date&quot;: &quot;2022-03-14T00:31:21Z&quot;}&amp;is_suggested=true&amp;recommendation_type=QUICK_ORDER&amp;recommended_quantity=1&amp;is_default_recommendation=false"
-								class="bees-link-wrapper bees-link-no-style"><div
-									class="is-column is-flex is-row-phone">
-									<div
-										class="is-2-col-phone is-center-center is-flex bees-product-image-container">
-										<img class="bees-image bees-product-image"
-											src="https://mybees.com.co/media/catalog/product//p/o/pony_malta_r__330x30_2182_1.png"
-											alt="Pony Malta R 330cc X 30 - 2182">
-									</div>
-									<div class="bees-spacer inline inline-m is-hidden-medium-plus"></div>
-									<div class="is-3-col-phone is-column is-self-center">
-										<div class="bees-spacer stack stack-m"></div>
-										<span title="Pony Malta R 330cc X 30 - 2182"
-											class="bees-text bees-product-card-title is-text-weight-medium truncate-after-3-lines is-line-height-normal">Pony
-											Malta R 330cc X 30 - 2182</span>
-										<div class="is-flex">
-											<span
-												class="bees-text bees-product-card-returnable-icon is-medium">♻</span>
-										</div>
-										<div class="bees-spacer stack stack-m"></div>
-										<div class="price-and-price-by-unit">
-											<span class=""><span
-												class="bees-number-display is-black-color">$39.900,0</span></span>
-										</div>
-										<div class="bees-spacer stack stack-s"></div>
-									</div>
-								</div></a>
-							<div class="bees-spacer stack stack-m"></div>
-							<div class="bees-spacer is-flex-1 stack stack-l"></div>
-							<form class="bees-add-form is-flex is-column">
-								<div class="is-flex is-row">
-									<div class="bees-product-qty">
-										<button onclick="desminuir(this)" class="desminuir bees-button qty-button-minus is-round is-secondary" type="button">-</button>
-										<label><span class="visually-hidden"> </span><input id="cantidadFinal" class="requested-qty" type="text" min="0" max="9999" value="0"></label>
-											<input id='contador' type="hidden">
-										<button
-											class="bees-button qty-button-plus is-round is-secondary"
-											type="button"  onclick="Aumentar(this)">+</button>
-									</div>
-									<div class="bees-spacer inline inline-m"></div>
-									<button
-										class="bees-button bees-add-to-cart is-uppercase is-secondary is-center-center is-font-size-xsmall"
-										type="submit">Añadir</button>
-								</div>
-							</form>
-						</div>
-					</div>
-				</div>
-			</div>
+						
+			
+
+		</div>
+		</div>
+		</div>
 		</div>
 	</div>
 												
@@ -358,14 +156,16 @@
 		</div>
 	</div>
 	<div class="overlay"></div>
+		<script th:src="@{js/logout.js}" type="text/javascript"></script>
+			<script src="js/sweetalert2@11.js"></script>
 	<!-- Javascript files-->
-	<script th:src="@{/js/jquery.min.js}"></script>
-	<script th:src="@{/js/popper.min.js}"></script>
-	<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
-	<script th:src="@{/js/owl.carousel.min.js}"></script>
-	<script th:src="@{/js/custom.js}"></script>
-	<script th:src="@{/js/jquery.mCustomScrollbar.concat.min.js}"></script>
-	<script th:src="@{/js/jquery-3.0.0.min.js}"></script>
+	<script th:src="@{js/jquery.min.js}"></script>
+	<script th:src="@{js/popper.min.js}"></script>
+	<script th:src="@{js/bootstrap.bundle.min.js}"></script>
+	<script th:src="@{js/owl.carousel.min.js}"></script>
+	<script th:src="@{js/custom.js}"></script>
+	<script th:src="@{js/jquery.mCustomScrollbar.concat.min.js}"></script>
+	<script th:src="@{js/jquery-3.0.0.min.js}"></script>
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$('#cantidadFinal').val(0);
@@ -409,28 +209,107 @@
 			})
 		})
 	</script>
+
+</body>
+
+</html>
+
 	<script type="text/javascript">
 	
 	var valor=0;
-	function Aumentar(boton){
-	    var contador = document.getElementById("contador").value;
+	var valor2=0;
+	var valor3=0;
+	var valor4=0;
+	var valor5=0;
+	function Aumentar(id){
+	    if(id ==1){
+	    	var contador = document.getElementById("contador").value;
 	        valor++
 	        if(valor > 0){
 	        	$('.desminuir').show();
 	        }
 		        var finalcompra = $('#cantidadFinal').val(valor);
 		        document.getElementById("contador").textContent = valor;
+		        
+	    }else if(id == 2){
+	    	var contador2 = document.getElementById("contador2").value;
+	        valor2++
+	        if(valor2 > 0){
+	        	$('.desminuir2').show();
+	        }
+		        var finalcompra2 = $('#cantidadFinal2').val(valor2);
+		        document.getElementById("contador2").textContent = valor2;
+	    }else if(id == 3){
+	    	var contador3 = document.getElementById("contador3").value;
+	        valor3++
+	        if(valor3 > 0){
+	        	$('.desminuir3').show();
+	        }
+		        var finalcompra3 = $('#cantidadFinal3').val(valor3);
+		        document.getElementById("contador3").textContent = valor3;
+	    }else if(id == 4){
+	    	var contador4 = document.getElementById("contador4").value;
+	        valor4++
+	        if(valor4 > 0){
+	        	$('.desminuir4').show();
+	        }
+		        var finalcompra4 = $('#cantidadFinal4').val(valor4);
+		        document.getElementById("contador4").textContent = valor4;
+	    }else if(id == 5){
+	    	var contador5 = document.getElementById("contador5").value;
+	        valor5++
+	        if(valor5 > 0){
+	        	$('.desminuir5').show();
+	        }
+		        var finalcompra5 = $('#cantidadFinal5').val(valor5);
+		        document.getElementById("contador5").textContent = valor5;
+	    }
 	}
-	function desminuir(boton){
-		 var contador = document.getElementById("contador").value;
-	        valor--
-	        if(valor < 0 || valor == 0){
-	        	$('.desminuir').hide(".desminuir");
-			} 
-	        	$('#cantidadFinal').val(valor);
-	    	    document.getElementById("contador").textContent = valor;
+	
+	function desminuir(id){
+		 if(id == 1){
+			 var contador = document.getElementById("contador").value;
+		        valor--
+		        if(valor < 0 || valor == 0){
+		        	$('.desminuir').hide(".desminuir");
+				} 
+		        	$('#cantidadFinal').val(valor);
+		    	    document.getElementById("contador").textContent = valor;
+		    	    
+		 }else if(id == 2){
+			 var contador = document.getElementById("contador2").value;
+		        valor2--
+		        if(valor2 < 0 || valor2 == 0){
+		        	$('.desminuir2').hide(".desminuir2");
+				} 
+		        	$('#cantidadFinal2').val(valor2);
+		    	    document.getElementById("contador2").textContent = valor2;
+		 }else if(id == 3){
+			 var contador3 = document.getElementById("contador3").value;
+		        valor3--
+		        if(valor3 < 0 || valor3 == 0){
+		        	$('.desminuir3').hide(".desminuir3");
+				} 
+		        	$('#cantidadFinal3').val(valor3);
+		    	    document.getElementById("contador3").textContent = valor3;
+		 }else if(id == 4){
+			 var contador4 = document.getElementById("contador4").value;
+		        valor4--
+		        if(valor4 < 0 || valor4 == 0){
+		        	$('.desminuir4').hide(".desminuir4");
+				} 
+		        	$('#cantidadFinal4').val(valor4);
+		    	    document.getElementById("contador4").textContent = valor4;
+		 }else if(id == 5){
+			 var contador5 = document.getElementById("contador5").value;
+		        valor5--
+		        if(valor5 < 0 || valor5 == 0){
+		        	$('.desminuir5').hide(".desminuir5");
+				} 
+		        	$('#cantidadFinal5').val(valor5);
+		    	    document.getElementById("contador5").textContent = valor5;
+		 }
 	}
 	</script>
-</body>
 
 
